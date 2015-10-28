@@ -47,7 +47,7 @@ public class Problem3 {
      * @param val2 割る数
      * @return 割り切れればtrue、そうでないならfalse
      */
-    public static boolean isRemainderZero(long val1, int val2) {
+    private static boolean isRemainderZero(long val1, int val2) {
         return val1 % val2 == 0;
     }
 }

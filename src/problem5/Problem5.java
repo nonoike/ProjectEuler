@@ -28,7 +28,7 @@ public class Problem5 {
      * @param val 最小約数を求める値
      * @return 最小の約数(素数)
      */
-    public static long getLeastDivisor(int val) {
+    private static long getLeastDivisor(int val) {
         for (int i = 2; i < val; i++) {
             if (isRemainderZero(val, i)) {
                 return i;
@@ -44,7 +44,7 @@ public class Problem5 {
      * @param val2 割る数
      * @return 割り切れればtrue、そうでないならfalse
      */
-    public static boolean isRemainderZero(long val1, int val2) {
+    private static boolean isRemainderZero(long val1, int val2) {
         return val1 % val2 == 0;
     }
 }
