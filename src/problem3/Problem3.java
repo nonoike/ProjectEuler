@@ -3,7 +3,6 @@ package problem3;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.LongStream;
 
 /**
  * <pre>
@@ -17,25 +16,20 @@ public class Problem3 {
     /** 計算対象の数値 */
     private static final long TARGET_VALUE = 600851475143l;
 
-    /** 計算対象を素因数分解した場合の値一覧 */
-    private static List<Long> primes;
-
     /** エントリポイント */
     public static void main(String[] args) {
-        primes = new ArrayList<>();
-        calcAndSetPrimes();
+        List<Long> primes = createPrimes();
         Long result = primes.stream().max(Comparator.naturalOrder()).orElse(0L);
         System.out.println(result);
     }
 
     /**
      * 素因数を計算し、リストに格納します。
-     *
-     * @param currentValue 現在の数値
      */
-    private static void calcAndSetPrimes() {
+    private static List<Long> createPrimes() {
         int i = 1;
         long currentValue = TARGET_VALUE;
+        List<Long> primes = new ArrayList<>();
         while (++i <= currentValue) {
             if (isRemainderZero(currentValue, i)) {
                 currentValue /= i;
@@ -43,6 +37,7 @@ public class Problem3 {
                 i = 1;
             }
         }
+        return primes;
     }
 
     /**
